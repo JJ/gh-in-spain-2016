@@ -1,0 +1,80 @@
+---
+title: "Evolution of the number of GitHub users in Spain"
+author: "JJ Merelo"
+date: "28/01/2016"
+output: 
+  pdf_document:
+    keep_tex: true
+bibliography: geneura.bib
+---
+
+```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
+#Set up data
+date_followers <- read.csv("../data/aggregated-top-Spain-evol.csv",sep=";")
+dates <- do.call("rbind",lapply(strsplit(as.character(date_followers$commitdate)," "),"[",1))
+date_users <- data.frame(Date=dates,Users=date_followers$users)
+
+library("ggplot2")
+library("ggthemes")
+
+data <- read.csv("../data/date-followers-contrib.csv")
+users <- read.csv("../data/users-month.csv")
+```
+##Abstract
+
+>Since we started measuring the community of GitHub users in Spain, it has kept increasing in numbers in such a way that it has grown almost 50%, to the current 12000, in less than one year. However, the reasons for this are not clear. In this paper we will try to find out what are the different components in this growth, or at least those that can be measured, in order to find out which ones are due to the measurement itself and which might be due to other reasons. In this paper we make an advance towards finding out the reasons for this growth.
+
+#Introduction
+
+Since the beginning of 2015, we have been measuring the number of users of the popular open source software repository GitHub [@gh2015,@winnow2015] in order to find out mainly what is the geographical distribution of users and if there are real differences across the country [@Merelo2015gh:geo]. Data was gathered by using GitHub search API to retrieve users and then web scraping to retrieve user data, such as the number of followers, contributions, and incorporation date. This data is published periodically, ordered by province and collated by autonomous region and the [whole country](https://github.com/JJ/top-github-users-data/blob/master/formatted/top-alt-Spain.md), in this case showing only the top 1000. These rankings are shown in Twitter and other social media, with comments on who is going up, down, and new shows.
+
+#Numbers
+The popularity of the rankings has been remarkable, and this has been reflected in the number of users that these rankings show. The actual numbers are shown in the following table
+
+```{r, results='asis'}
+knitr::kable(date_users)
+```
+
+From the initial 8659 users we have arrived lately at 12526 users. However, this increase in the number of users might be due to several different reasons.
+
+- Raw increase in the number of users: more people sign up for GitHub and start to contribute. This will happen naturally, independently of the published rankings.
+- Since the program uses the search API for identifying where the users are from, people who were already contributing fill out their profile so that they now show up in search results.
+- The rankings shows only users that have had non-zero contributions in the last year. Old users suddenly revisiting their old repositories will also start to show up in the rankings.
+
+The issue with finding out the real reason is to check the actual effect these rankings have had in the gamification of contributions to open source, by creating a competition that will encourage more people to sign in. However, it is not clear if this effect will actually contribute to more users signing in or to current users being more productive. That is why it is important to find out where new users actually come from. So we will have to look at the distribution of users per year of signing up.
+
+#Distribution per year.
+
+The barplot below shows the number of users by year of incorporation into GitHub.
+
+```{r, echo=FALSE,fig.width=10,fig.height=8,message=FALSE}
+ggplot( data, aes(x=Yr,y=..count..))+geom_bar(stat='bin')+scale_x_continuous(breaks=c(2007:2016))+  theme_tufte()
+```
+
+Please bear in mind that this graph shows only the users that are currently active, not those that might have been active in the year of registration. And what it shows is that, in fact, users who signed up in the previous year, are active in more quantities than those who signed up during 2015. In fact, there were *fewer* users registering last year, the first year that we have been recording activity, than in 2014, and approximately the same as in 2013.
+
+In fact, users who have signed up last year account for only a small fraction of total active users, less than 10%. And, in fact, account for less than 25% of the new users that we have observed. This points to the second hypothesis, users filling out their profile. But we will delve further into this data in the next section
+
+#*Really new* users and *just new* users.
+
+This means that we have got only around 1000 *really new* users, that is, users that have signed up during the period of measurement, and these make up for a fraction of users just showing up. Let us break this down per month in the next graph
+
+```{r, echo=FALSE,fig.width=6,fig.height=4,message=FALSE}
+ggplot(data=users)+geom_bar(aes(x=Month,y=IncUsers,fill='Users'),alpha=.3,stat='identity')+geom_bar(aes(x=Month,y=NewUsers,fill='New Users'),stat='identity')+theme_tufte()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+By *new users* we indicate those users that have just signed up. As it can be seen, they are a fraction of total users; while hew users hover in the 100s and decrease towards the end of the year, total accounted for users increase by around 300 every month, with the initial months having a big boost due probably to the tuning of the search strings and another boost in October probably due to the beginning of the new university course and students and maybe new hires boasting their presence in the rankings and encouraging their colleagues to update their profile and show up too.
+
+At any rate, it is quite clear that new users increase mainly *not* due to *really* new users, that is, persons newly signing up and using GitHub.
+
+#Conclusions
+
+In this work, one of our objectives was to study the impact of measuring the activity of GitHub users in Spain and do it periodically, observing changes, patterns and also geographical trends. We expected that this would contribute to open source in general, since GitHub is nowadays the repo container of choice for FLOSS developers. It is quite clear that there is an impact, at least if we consider the number of contributions. However, the impact is mainly *not* in the number of users newly signing up for GitHub, but on users either completing their profile or making contributions after staying dormant for some time. We do not know which one will be, but an educated guess is that probably, over all due to increments during academically important periods, might be the latter: students coming back to their repos when the school year starts; this could account for the big bump shown in October 2015. However, we will have to continue measurements during several years to actually make some affirmation. The fact that the total number of users does not decrease, since it measures activity *only* in the last year, is maybe supporting this hypothesis, which, on the other hand, is almost impossible to check since the date of change of profile data is not known. 
+
+On the other hand, we are more interested in measuring other ways this ranking is changing the community as future lines of works. Examining particular provinces like Granada, for instance, or examining collaboration graphs. That is left as future work. 
+
+#Notes and acknowledgements
+
+This report has been supported by GeNeura team and its supporting grants. [GeNeura](http://geneura.wordpress.com) supports open science, and this paper is written in RMarkdown and its source, supporting data and processing scripts are available from Github at https://github.com/JJ/gh-in-spain-2016.
+
+
+#References
