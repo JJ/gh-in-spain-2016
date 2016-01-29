@@ -1,12 +1,12 @@
 ---
-title: "The incredibly growing GitHubsphere in Spain"
+title: "GitHub in Spain stays mainly (not) in the plain"
 author: "JJ Merelo"
 date: "28/01/2016"
 output:
-  slidy_presentation: default
+  beamer_presentation: default
   ioslides_presentation:
     widescreen: yes
-  beamer_presentation: default
+  slidy_presentation: default
 ---
 
 ```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
@@ -20,7 +20,7 @@ data <- read.csv("../data/date-followers-contrib.csv")
 users <- read.csv("../data/users-month.csv")
 ```
 
-## GitHub in Spain stays mainly in the plain
+## The incredibly growing GitHubsphere in Spain
 
 ![Llanos de Conil](https://farm9.staticflickr.com/8353/8264219867_2c15f6160c_b_d.jpg)
 
