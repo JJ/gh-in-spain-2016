@@ -45,7 +45,7 @@ The issue with finding out the real reason is to check the actual effect these r
 
 #Distribution per year.
 
-The barplot below shows the number of users by year of incorporation into GitHub.
+The bar plot below shows the number of users by year of incorporation into GitHub.
 
 ```{r, echo=FALSE,fig.width=10,fig.height=8,message=FALSE}
 ggplot( data, aes(x=Yr,y=..count..))+geom_bar(stat='bin')+scale_x_continuous(breaks=c(2007:2016))+  theme_tufte()
@@ -74,7 +74,7 @@ On the other hand, we are more interested in measuring other ways this ranking i
 
 #Notes and acknowledgements
 
-This report has been supported by GeNeura team and its supporting grants. [GeNeura](http://geneura.wordpress.com) supports open science, and this paper is written in RMarkdown and its source, supporting data and processing scripts are available from Github at https://github.com/JJ/gh-in-spain-2016.
+This report has been supported by GeNeura team and its supporting grants. [GeNeura](http://geneura.wordpress.com) supports open science, and this paper is written in RMarkdown and its source, supporting data and processing scripts are available from GitHub at https://github.com/JJ/gh-in-spain-2016.
 
 
 #References
