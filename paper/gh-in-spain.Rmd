@@ -3,10 +3,10 @@ title: "The incredibly growing GitHubsphere in Spain"
 author: "JJ Merelo"
 date: "28/01/2016"
 output:
-  beamer_presentation: default
+  slidy_presentation: default
   ioslides_presentation:
     widescreen: yes
-  slidy_presentation: default
+  beamer_presentation: default
 ---
 
 ```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
