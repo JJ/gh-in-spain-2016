@@ -3,10 +3,10 @@ title: "The incredibly growing GitHubsphere in Spain"
 author: "JJ Merelo"
 date: "28/01/2016"
 output:
-  slidy_presentation: default
+  beamer_presentation: default
   ioslides_presentation:
     widescreen: yes
-  beamer_presentation: default
+  slidy_presentation: default
 ---
 
 ```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
@@ -41,7 +41,7 @@ ggplot(date_users,aes(x=Date,y=Users))+geom_line()+geom_point()+scale_x_date()+ 
 
 ![Sun shining over clouds](https://farm3.staticflickr.com/2144/1710954696_550f4e7163_b_d.jpg)
 
-## But.. whose fault is it?
+## But.. who's to blame?
 
 ![Thinking](https://farm2.staticflickr.com/1010/1256124266_cebbfca7f0_b_d.jpg)
 
@@ -62,13 +62,18 @@ ggplot(data=users)+geom_bar(aes(x=Month,y=IncUsers,fill='Users'),alpha=.3,stat='
 ## New users are old users!
 
 - Most people who show up in the ranking *were already in GitHub*
-- Updated profile or oldtimer reactivation?
+
+- But: 
+
+###Updated profile or oldtimer reactivation?
 
 ## Who knows
 
 -Coming up, in the next season of *GitHub users in Spain stay mainly in the plain*, **new users are the new old users**.
 
 -But we will try to find out.
+
+###The truth is out there
 
 ## Thanks!
 
