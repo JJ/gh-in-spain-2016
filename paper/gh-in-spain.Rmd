@@ -1,5 +1,5 @@
 ---
-title: "GitHub in Spain stays mainly (not) in the plain"
+title: "GitHub in Spain stays mainly (not) in the plain:"
 author: "JJ Merelo"
 date: "28/01/2016"
 output:
