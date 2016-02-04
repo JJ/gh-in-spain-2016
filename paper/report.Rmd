@@ -76,7 +76,7 @@ This data has been extracted from the commit date, using git as a time-stamped d
 
 In this graph, *new users* are those that have just signed up. As it can be seen, they are a fraction of total users; while hew users hover in the 100s and decrease towards the end of the year, total accounted for users increase by around 300 every month, with the initial months having a big boost due probably to the tuning of the search strings and another boost in October probably due to the beginning of the new university course and students and maybe new hires boasting their presence in the rankings and encouraging their colleagues to update their profile and show up too.
 
-At any rate, it is quite clear that new users increase mainly *not* due to *really* new users, that is, persons newly signing up and using GitHub.
+At any rate, it is quite clear that the ranks of new users increase mainly *not* due to *really* new users, that is, persons newly signing up and using GitHub.
 
 #Conclusions
 
@@ -86,7 +86,8 @@ On the other hand, we are more interested in measuring other ways this ranking i
 
 #Notes and acknowledgements
 
-This report has been supported by GeNeura team and its supporting grants. [GeNeura](http://geneura.wordpress.com) supports open science, and this paper is written in RMarkdown and its source, supporting data and processing scripts are available from GitHub at https://github.com/JJ/gh-in-spain-2016.
+This report has been supported by GeNeura team and its supporting grants such as the 
+project TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness), funded by the Spanish Ministry of Economy and Competitivity and FEDER. [GeNeura](http://geneura.wordpress.com) supports open science, and this paper is written in RMarkdown and its source, supporting data and processing scripts are available from GitHub at https://github.com/JJ/gh-in-spain-2016. Links to data and presentation are included in this web page http://jj.github.io/gh-in-spain-2016/.
 
 
 #References

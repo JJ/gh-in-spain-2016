@@ -40,6 +40,8 @@ for my $l (@lines[1..$#lines]) {
 
 say "Month,IncUsers,NewUsers";
 for (my $m = 1; $m <= $#mons; $m++ ) {
-  say "$mons[$m], ",$users{$mons[$m]}-$users{$mons[$m-1]}, ", $new_users{$mons[$m]}";
+    my $these_new_users = $new_users{$mons[$m]} || 0;
+    say "$mons[$m], "
+	,$users{$mons[$m]}-$users{$mons[$m-1]}, ", $these_new_users";
   
 }

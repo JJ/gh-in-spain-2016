@@ -18,7 +18,7 @@ my @mon = qw( Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec);
 my $i = 1;
 my %months;
 map $months{$_} = $i++ , @mon;
-say "User,Date,Contribs,Followers";
+say "Yr,Mon,Contribs,Followers";
 for my $d (@$data) {
   my ($mon, $yr) = ($d->{'join_date'} =~ /(\w+)\s+\d+,\s+(\d+)/);
   say "$yr, $months{$mon}, ", $d->{'contributions'} || 0, ", ", $d->{'followers'} || 0;
