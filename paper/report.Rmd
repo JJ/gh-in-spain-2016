@@ -45,7 +45,7 @@ The popularity of the rankings has been remarkable, and this has been reflected 
 knitr::kable(date_users)
 ```
 
-From the initial 8659 users we have arrived lately at 12526 users. It is not believable, however, to claim that this Big Bang of free software developers in Spain is singly due do this ranking, or some co-occurring event. In fact, it might be due to several different reasons.
+From the initial 8659 users we have arrived lately at a number of users in the vicinity of 13000. It is not believable, however, to claim that this Big Bang of free software developers in Spain is singly due do this ranking, or some co-occurring event. In fact, it might be due to several different reasons.
 
 - Raw increase in the number of users: more people sign up for GitHub and start to contribute. This will happen naturally, independently of the published rankings.
 - Since the program uses the search API for identifying where the users are from, people who were already contributing fill out their profile so that they now show up in search results.
