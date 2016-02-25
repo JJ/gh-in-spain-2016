@@ -1,15 +1,16 @@
 ---
 title: "Evolution of the number of GitHub users in Spain"
 author: "JJ Merelo"
-date: "2/02/2016"
-output: 
+date: "25/02/2016"
+output:
   pdf_document:
-    keep_tex: true
+    keep_tex: yes
+  html_document: default
 bibliography: geneura.bib
 ---
 
 ```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
-#Set up data
+#Set up data. Remember to run scripts/process.sh after running scripts in top-github-user-data and github-city-rankings
 date_followers <- read.csv("../data/aggregated-top-Spain-evol.csv",sep=";")
 dates <- do.call("rbind",lapply(strsplit(as.character(date_followers$commitdate)," "),"[",1))
 date_users <- data.frame(Date=dates,Users=date_followers$users)
@@ -72,11 +73,12 @@ This means that we have got only around 1000 *really new* users, that is, users 
 ```{r, echo=FALSE,fig.width=6,fig.height=4,message=FALSE}
 ggplot(data=users)+geom_bar(aes(x=Month,y=IncUsers,fill='Users'),alpha=.3,stat='identity')+geom_bar(aes(x=Month,y=NewUsers,fill='New Users'),stat='identity')+theme_tufte()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
+
 This data has been extracted from the commit date, using git as a time-stamped database. What we do is to extract all versions of the file and use the *last* every month to count the number of users tracked. This number is then subtracted from the users we know about the next month. This means that there might be a small time shift between the number of new users (that are counted by the end of the month) and the number of newly discovered users (which might have happened anytime since the beginning of the month). This might be relevant if numbers were closer, but since they are so different we do not think it makes a difference. Anyway, people not counted one month are counted on the next.
 
 In this graph, *new users* are those that have just signed up. As it can be seen, they are a fraction of total users; while hew users hover in the 100s and decrease towards the end of the year, total accounted for users increase by around 300 every month, with the initial months having a big boost due probably to the tuning of the search strings and another boost in October probably due to the beginning of the new university course and students and maybe new hires boasting their presence in the rankings and encouraging their colleagues to update their profile and show up too.
 
-At any rate, it is quite clear that the ranks of new users increase mainly *not* due to *really* new users, that is, persons newly signing up and using GitHub.
+At any rate, it is quite clear that the ranks of new users increase mainly *not* due to *really* new users, that is, persons newly signing up and using GitHub, but rather to people that have returned to it after a time of not making any contribution.
 
 #Conclusions
 
